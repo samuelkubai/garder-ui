@@ -68,7 +68,7 @@ class Story extends Component {
 
                     <div className="single-story-statistic">
                         <div className="single-story-statistic__value">
-                            3
+                          {story.complexity}
                         </div>
 
                         <div className="single-story-statistic__name">
