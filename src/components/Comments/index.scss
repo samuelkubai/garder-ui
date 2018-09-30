@@ -1,0 +1,111 @@
+.comments {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .stream {}
+
+  .observations {
+    width: 442px;
+    height: auto;
+
+    background: #fff;
+
+    margin: 30px 20px 30px 0;
+
+    &__title {
+      color: #969696;
+      font-weight: 300;
+      font-size: 18px;
+      padding: 0 0 20px;
+    }
+
+    &__stream {
+      box-shadow: 0px 5px 15px 0px rgba(55,55,55,0.25), 0px 15px 35px 0px rgba(243, 243, 243,0.5);   
+    }
+  }
+  .observation {
+    border-bottom: 1px solid #C6C6C6;
+    font-size: 14px;
+    margin: 0 0 0;
+    padding: 10px 0 5px;
+
+    &__title {
+      display: flex;
+      align-items: center ;
+      justify-content: flex-start;
+
+      margin: 5px 0 0;
+      .material-icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 20px;
+        width: 20px;
+        border: 1px solid #318DF9;
+        border-radius: 50%;
+        background: #318DF9;
+        color: #fff;
+        font-size: 14px;
+        margin: 5px 10px;
+      }
+
+      .material-icons.red {
+        background: #C32626;
+        border-color: #C32626;
+        color: #fff;
+      }
+    }
+
+    &__content {
+      padding: 10px;
+      
+      a {
+        color: #318DF9;
+      }
+    }
+  }
+}
+.comment {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+ 
+  margin: 30px 30px; 
+}
+.comment__user-pic {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: grey;
+  margin: 5px 0 0;
+
+  img {
+    border-radius: 50%;
+    width: 100%;
+  }
+}
+.comment__container {
+  line-height: 24px;
+  margin: 0 0 0 15px;
+}
+.comment__user-name {
+  color: #414141;
+  font-size: 14px;
+  font-weight: bold;
+}
+.comment__updated-at {
+  color: #808080;
+  font-size: 12px;
+}
+.comment__message {
+  font-size: 14px;
+  margin: 10px 0 0;
+  min-width: 800px;
+  background: #fff;
+  box-shadow: 0px 5px 15px 0px rgba(55,55,55,0.25), 0px 15px 35px 0px rgba(243, 243, 243,0.5);
+  padding: 15px 10px;
+  border-radius: 3px;
+  p {margin: 0;}
+}

@@ -1,0 +1,27 @@
+.story-tabs {
+  margin: 35px 0 0;
+}
+ul.tab-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+li.tab {
+  color: #969696;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  margin-right: 10px;
+  padding: 0 20px 10px;
+
+  &.active {
+    font-weight: 400;
+    border-bottom: 4px solid #318DF9;
+    color: #318DF9;
+  }
+}
