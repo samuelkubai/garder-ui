@@ -1,0 +1,12 @@
+.github-pills {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  
+  overflow-x: scroll;
+}
+
+.github-slider {
+  .slick-track { width: max-content !important;}
+  .slick-slide { width: 65vw !important; }
+}

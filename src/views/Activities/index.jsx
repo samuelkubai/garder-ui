@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import StoryHeader from '../../components/StoryHeader';
 import Activity from '../../components/Activity';
 import Comments from '../../components/Comments';
+import Github from '../../components/Github';
 
 class Activities extends Component {
   state = {
@@ -15,7 +16,7 @@ class Activities extends Component {
       Comments: [],
       pull_request: [],
     },
-    activeTab: 'comments'
+    activeTab: 'gh'
   }
   
   componentDidMount() {
@@ -54,9 +55,16 @@ class Activities extends Component {
   }
 
   renderTabContent(story) {
+    const { activeTab } = this.state;
+    const tabContents = {
+      'comments': Comments,
+      'gh': Github
+    };
+    const ActiveContent = tabContents[activeTab];
+
     return (
       <Fragment>
-        <Comments story={story}/>
+        <ActiveContent story={story}/>
       </Fragment>
     );
   }

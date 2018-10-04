@@ -10,12 +10,21 @@ class Comments extends Component {
       isLoaded: false,
       comments: []
     }
+    
+    componentDidMount() {
+      const { story } = this.props;
+      this.updateComments(story);
+    }
 
     componentWillUpdate(nextProps) {
       const { story } = this.props;
-
       if (nextProps.story.ID != story.ID) {
-        fetch(`${process.env.REACT_APP_API_URL}/comments?storyID=${nextProps.story.ID}`)
+        this.updateComments(nextProps.story);
+      }
+    }
+
+    updateComments(story) {
+      fetch(`${process.env.REACT_APP_API_URL}/comments?storyID=${story.ID}`)
           .then(response => response.json())
           .then(data => {
             this.setState({
@@ -23,7 +32,6 @@ class Comments extends Component {
               comments: data  
             })
           });
-      }
     }
 
     render() {

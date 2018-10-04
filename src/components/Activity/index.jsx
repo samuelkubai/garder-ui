@@ -9,7 +9,7 @@ const icons = {
   "opened-pull-request": "play_circle_outline",
   "synchronize-pull-request": "replay",
   "edited-pull-request": "edit",
-  "labeled-pull-request": "label",
+  "labels-change": "label",
   "comment-pull-request": "chat_bubble_outline",
 };
 
@@ -21,7 +21,6 @@ const title = {
   "opened-pull-request":  (pull_request) => `Pull request opened`,
   "synchronize-pull-request":  (pr) => `Pull request synced`,
   "edited-pull-request": (pr) => `Pull request edited`,
-  "labeled-pull-request": (pr) => `Labels updated`,
   "comment-pull-request": (comment) => `New comment on <a href="#">Github</a>`,
 };
 
@@ -32,9 +31,15 @@ const body = {
   "comment-story": (comment) => `${comment.message}`,
   "opened-pull-request":  (pr) => `#${pr.storyID} has a new pull request titled: <b>${pr.title}</b>`,
   "synchronize-pull-request":  (pr) => `${pr.title} has been synced from Github`,
-  "edited-pull-request": (pr) => `${pr.title} has been edited on Github`,
-  "labeled-pull-request": (pr) => `${pr.title} label's have been updated on Github`,
-  "comment-pull-request": (pr) => `${pr.message}`,
+  "edited-pull-request": (pr) => `Pull request has been edited on Github`,
+  "labels-change": (label) => `The PR is now under the label <span style="font-size: 16px;padding: 3px 10px;color: #fff;background: #${label.Label ? label.Label.color : ""}">${label.Label ? label.Label.name : ""}</span>`,
+  "comment-pull-request": (comment) => {
+    if(comment.state == "approved") {
+      return `The pull request was approved ${comment.message ? "<div style=\"margin-top: 10px;font-style:italic;\">" + comment.message + "</div>" : ""}`
+    } else { 
+      return `${comment.message}`
+    }
+  },
 };
 
 class Activity extends Component {
@@ -97,7 +102,6 @@ class Activity extends Component {
         </div>
 
         <div className="activity__container">
-          <div className="activity__title" dangerouslySetInnerHTML={{__html: this.renderTitle()}}></div>
           <div className="activity__body" dangerouslySetInnerHTML={{__html: this.renderBody()}}></div>
         </div>
       </div>
